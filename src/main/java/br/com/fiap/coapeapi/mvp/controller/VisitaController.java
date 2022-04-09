@@ -16,7 +16,7 @@ public class VisitaController {
 
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Visita buscar(@RequestParam Long id) {
+    public Visita buscar(@PathVariable Long id) {
         var optional = visitaRepository.findById(id);
         return optional.orElse(null);
     }
