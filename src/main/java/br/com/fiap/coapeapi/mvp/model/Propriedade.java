@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -34,5 +36,11 @@ public class Propriedade {
 
     @Column(nullable = false)
     private Boolean ativa;
+
+    @ManyToMany
+    @JoinTable(name = "propriedade_foto",
+            joinColumns = @JoinColumn(name = "propriedade_id"),
+            inverseJoinColumns = @JoinColumn(name = "foto_id"))
+    private Set<FotoPropriedade> fotos = new HashSet<>();
 
 }

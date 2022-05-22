@@ -22,6 +22,6 @@ public class Proprietario {
 
     @OneToOne
     @JoinColumn(nullable = false)
-    private Pessoa pessoa;
+    private Usuario usuario;
 
 }
